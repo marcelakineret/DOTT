@@ -8,7 +8,27 @@ pipeline {
             }
             stage('SonarQube') {
                 steps {
-                    sh 'echo "Step Two Sonar x" '
+                       script {
+						try {
+				   	 		def scannerHome = tool 'sonarqube';
+					   			withSonarQubeEnv("sonar") {
+						   			sh "${tool("sonar")}/bin/sonar-scanner \
+						  				-Dsonar.organization=marcelakineret \
+										-Dsonar.projectKey=marcelakineret_DOTT \
+										-Dsonar.sources=src \
+										-Dsonar.exclusions=coverage \
+                                        -Dsonar.java.binaries=target \
+                                        -Dsonar.login=4fb97f555c4512ca7a004a9ac5687e9fab6b8964 \
+                                        -Dsonar.sources=src \
+                                        -Dsonar.host.url=https://sonarcloud.io 
+										
+                                        
+								}
+						}
+						catch (exc) {
+							sh 'echo "Static Code Analysis did not pass"'
+						}
+				   }
                 }
             } 
 
