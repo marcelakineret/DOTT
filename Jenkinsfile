@@ -2,16 +2,10 @@ pipeline {
     agent any
         stages {
             stage('Cloning') {
-                //steps {
-                    //sh 'echo "Step One build something else" '
-                //}
-		    steps {
-                git 'https://github.com/marcelakineret/DOTT'
-            }
-        }
-		stage('Install Dependencies - Building App'){
-            steps {
-                   sh 'npm install nyc --save-dev'
+                steps {
+                    sh 'echo "Step One build something else" '
+                }
+		   
             }
             }
             stage('SonarQube') {
