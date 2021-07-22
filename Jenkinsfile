@@ -7,7 +7,10 @@ pipeline {
                 }
             }
             stage('SonarQube') {
-                steps {
+		    steps {
+                    sh 'echo "Step Two Sonar x" '
+                }
+               /* steps {
                        script {
 				try {
 				    	def scannerHome = tool 'sonar';
@@ -27,7 +30,7 @@ pipeline {
 							sh 'echo "Static Code Analysis did not pass"'
 						}
 				   }
-				}
+				} */
 		}
             stage('Testing') {
                 steps {
