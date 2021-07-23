@@ -38,9 +38,17 @@ pipeline {
                 }
             }
 		
-	     stage('Testing') {
+	     stage('Deploy') {
                 steps {
-                    sh 'echo "Step Three ddd" '
+                    //sh 'echo "Step Three ddd" '
+			script {
+						try {
+							sh 'npm Deploy'
+						}
+						catch (exc){
+							sh 'echo "No Deployado"'
+						}
+			         }
                 }
             }
 		
