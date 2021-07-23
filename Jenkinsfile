@@ -43,7 +43,7 @@ pipeline {
                     //sh 'echo "Step Three ddd" '
 			script {
 						try {
-							//sh 'npm Deploy'
+							sh 'npm Deploy'
 							cd /new/files
 							git push production master
 						}
