@@ -44,8 +44,7 @@ pipeline {
 			script {
 						try {
 							sh 'npm Deploy'
-							cd /new/files
-							git push production master
+							
 						}
 						catch (exc){
 							sh 'echo "No Deployado"'
