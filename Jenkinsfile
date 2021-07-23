@@ -4,7 +4,7 @@ pipeline {
             stage('Build') {
                 steps {
                     sh 'echo "Building" '
-			git 'https://github.com/pablosiegers/DOTT'
+			git 'https://github.com/marcelakineret/DOTT'
                 }
             }
             stage('SonarQube') {
