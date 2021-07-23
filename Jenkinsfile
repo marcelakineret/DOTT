@@ -9,7 +9,14 @@ pipeline {
             }
             stage('SonarQube') {
                 steps {
-                    sh 'echo "Step Two Sonar x" '
+                    //sh 'echo "Step Two Sonar x" '
+			 script {
+						try {
+							sh 'npm Sonar Analysis'
+						}
+						catch (exc){
+							sh 'echo "Analysis fail"'
+						}
                 }
             } 
 
