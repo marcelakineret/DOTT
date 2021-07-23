@@ -6,6 +6,10 @@ pipeline {
                     sh 'echo "Building" '
 			git 'https://github.com/marcelakineret/DOTT'
                 }
+		stage('Dependencies'){
+            steps {
+                   sh 'npm install nyc --save-dev'
+            }    
             }
             stage('SonarQube') {
                 steps {
