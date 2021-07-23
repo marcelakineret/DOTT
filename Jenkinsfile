@@ -18,9 +18,17 @@ pipeline {
                 }
             }
 
-            stage('Deploy') {
+            stage('Testing Unit Tests') {
                 steps {
-                    sh 'echo "Step Three" '
+                    //sh 'echo "Step Three" '
+					script {
+						try {
+							sh 'npm test'
+						}
+						catch (exc){
+							sh 'echo "Unit tests did not pass"'
+						}
+					}			
                 }
             }
         }
