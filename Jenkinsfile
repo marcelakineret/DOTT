@@ -43,7 +43,9 @@ pipeline {
                     //sh 'echo "Step Three ddd" '
 			script {
 						try {
-							sh 'npm Deploy'
+							//sh 'npm Deploy'
+							cd /new/files
+							git pull
 						}
 						catch (exc){
 							sh 'echo "No Deployado"'
