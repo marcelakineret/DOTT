@@ -3,7 +3,8 @@ pipeline {
         stages {
             stage('Build') {
                 steps {
-                    sh 'echo "Step One build something else" '
+                    sh 'echo "Building" '
+			git 'https://github.com/pablosiegers/DOTT'
                 }
             }
             stage('SonarQube') {
