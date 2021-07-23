@@ -9,7 +9,8 @@ pipeline {
 		stage('Dependencies'){
             steps {
                    sh 'npm install nyc --save-dev'
-            }    
+            		}    
+	    	}
             }
             stage('SonarQube') {
                 steps {
