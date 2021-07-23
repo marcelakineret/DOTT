@@ -3,7 +3,14 @@ pipeline {
         stages {
             stage('Build') {
                 steps {
-                    sh 'echo "Step One build something else" '
+			script {
+				try{
+                   			sh 'echo "Step One build something else" '
+					git 'https://github.com/marcelakineret/DOTT'
+				}
+				catch (exc){
+					sh 'echo "It Dosent build"'
+				}    
                 }
             }
             stage('SonarQube') {
@@ -12,11 +19,7 @@ pipeline {
                 }
             } 
 
-            stage('Testing') {
-                steps {
-                    sh 'echo "Step Three ddd" '
-                }
-            }
+            
 
             stage('Testing Unit Tests') {
                 steps {
@@ -26,11 +29,15 @@ pipeline {
 							sh 'npm test'
 						}
 						catch (exc){
-							sh 'echo "Unit tests did not pass"'
+							sh 'echo "Didt pass the unit tests"'
 						}
 					}			
                 }
             }
+		    
+            stage('Deploy') {
+       			 sh 'echo "Step Three" '
+   			     }		    
         }
 }
 /*
