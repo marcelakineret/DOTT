@@ -22,11 +22,7 @@ pipeline {
 			
             } 
 
-            stage('Testing') {
-                steps {
-                    sh 'echo "Step Three ddd" '
-                }
-            }
+           
 
             stage('Testing Unit Tests') {
                 steps {
@@ -41,6 +37,13 @@ pipeline {
 					}			
                 }
             }
+		
+	     stage('Testing') {
+                steps {
+                    sh 'echo "Step Three ddd" '
+                }
+            }
+		
         }
 }
 /*
