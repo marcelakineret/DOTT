@@ -17,7 +17,9 @@ pipeline {
 						catch (exc){
 							sh 'echo "Analysis fail"'
 						}
+			         }
                 }
+			
             } 
 
             stage('Testing') {
